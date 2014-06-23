@@ -41,7 +41,7 @@ public class ErrorCheckPage extends WebPage {
                 String message = "";
                 String input = getModelObject();
                 if (input == null || "".equals(input)) {
-                    message = "入力されてないじゃないですかやだー！！";
+                    message = "値が入力されていません。";
                 }
 
                 if ("".equals(message)) {
@@ -49,12 +49,12 @@ public class ErrorCheckPage extends WebPage {
                     Pattern p = Pattern.compile(regex);
                     Matcher m1 = p.matcher(input);
                     if (!m1.find()) {
-                        message = "数字じゃないじゃないですかばかー！！";
+                        message = "入力された文字列は数値ではありません。";
                     }
                 }
                 if ("".equals(message)) {
                     if (input.length() < 2 || input.length() > 10) {
-                        message = "2桁以上10桁以下って、いいましたよね…？";
+                        message = "入力された文字列は2桁以上10桁以下ではありません。";
                     }
                 }
                 if (!"".equals(message)) {

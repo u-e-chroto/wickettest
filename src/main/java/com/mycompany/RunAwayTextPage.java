@@ -36,9 +36,11 @@ public class RunAwayTextPage extends WebPage {
 
     private int part = 0;
     private static final List<String> view = Arrays.asList(
-            "(｀・ω・´)", "(　｀・ω・)", "(　　｀・ω)", "(　　　｀・)", "(　　　　｀)",
-            "(　　　　　)", "(｀　　　　)", "(・｀　　　)", "(ω・｀　　)", "(・ω・｀　)",
-            "(´・ω・｀)");
+            "                ", "               m", "              mo", "             mou",
+            "            mous", "           mouse", "          mouse ", "         mouse o",
+            "        mouse ov", "       mouse ove", "      mouse over", "     mouse over ",
+            "    mouse over e", "   mouse over ev", "  mouse over eve", " mouse over even",
+            "mouse over event");
 
     public RunAwayTextPage() {
         final WebMarkupContainer updateComponent = new WebMarkupContainer("updateComponent");
@@ -78,13 +80,13 @@ public class RunAwayTextPage extends WebPage {
         updateComponent.add(t8);
 
         t1.add(getEventBehavior(updateComponent));
-        t1.setDefaultModel(new Model<String>("(´･ω･｀)"));
+        t1.setDefaultModel(new Model<String>("○"));
 
         final WebMarkupContainer rollComponent = new WebMarkupContainer("rollComponent");
         rollComponent.setOutputMarkupId(true);
         add(rollComponent);
 
-        Label roll = new Label("roll", "(｀・ω・´)回っちゃうよ！");
+        Label roll = new Label("roll", "マウスオーバーしてください");
         roll.setOutputMarkupId(true);
         roll.add(getRollEvent());
         rollComponent.add(roll);
@@ -113,7 +115,7 @@ public class RunAwayTextPage extends WebPage {
                 String nextId = getNextId(this.getComponent().getId());
                 Component nextComponent = RunAwayTextPage.this.get("updateComponent").get(nextId);
                 nextComponent.add(getEventBehavior(updateComponent));
-                nextComponent.setDefaultModel(new Model<String>("(´･ω･｀)残像よー"));
+                nextComponent.setDefaultModel(new Model<String>("○"));
                 target.add(updateComponent);
             }
         };
